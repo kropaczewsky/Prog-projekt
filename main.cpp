@@ -2,6 +2,8 @@
 #include <iostream>
 #include <stdio.h>
 
+
+
 using namespace std;
 
 int plansza[3][3] = {{0,0,0},{0,0,0},{0,0,0}};
