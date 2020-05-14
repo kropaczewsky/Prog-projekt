@@ -10,6 +10,25 @@ int plansza[3][3] = {{0,0,0},{0,0,0},{0,0,0}};
 int i=0;
 int ruch=0;
 
+string intToStr(int n)
+{
+     string tmp, ret;
+     if(n < 0) {
+      ret = "-";
+      n = -n;
+     }
+     do {
+      tmp += n % 10 + 48;
+      n -= n % 10;
+     }
+       while(n /= 10);
+     for(int i = tmp.size()-1; i >= 0; i--)
+      ret += tmp[i];
+     return ret;
+};
+
+
+
 int czywygrana(int czy)
 {
 
