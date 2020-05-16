@@ -93,6 +93,51 @@ int czywygrana(int czy)
     return 0;
 }
 
+int gra()
+{
+if(ruch==0)
+    {
+        if(plansza[0][0]==0)
+        {
+            plansza[0][0]=2;
+            ruch=1;
+        }
+        else if(ruch==0)
+        {
+            if(plansza[2][2]==0)
+            {
+                plansza[2][2]=2;
+                ruch=1;
+            }
+            else if(ruch==0)
+            {
+                if(plansza[2][0]==0)
+                {
+                    plansza[2][0]=2;
+                    ruch=1;
+                }
+                else if(ruch==0)
+                {
+                    if(plansza[2][0]==0)
+                    {
+                        plansza[2][0]=2;
+                        ruch=1;
+                    }
+                    else if(ruch==0)
+                    {
+                        if(plansza[0][2]==0)
+                        {
+                            plansza[0][2]=2;
+                            ruch=1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return 0;
+}
+
 
 
 int planszaa()
@@ -251,6 +296,22 @@ int planszaa()
     cout << "     |     |     " << endl;
     return 0;
 }
+
+int reset()
+{
+    system("cls");
+    plansza[0][0]=100;
+    plansza[0][1]=100;
+    plansza[0][2]=100;
+    plansza[1][0]=100;
+    plansza[1][1]=100;
+    plansza[1][2]=100;
+    plansza[2][0]=100;
+    plansza[2][1]=100;
+    plansza[2][2]=100;
+    return 0;
+}
+
 
 int main()
 {
