@@ -27,7 +27,22 @@ string intToStr(int n)
      return ret;
 };
 
-
+int czywolne(int u, int o)
+{
+    if(plansza[u][o]==0)
+    {
+        plansza[u][o]=9;
+    }
+    else
+    {
+        cout << "To pole jest zajete";
+        getchar();
+            wybor = -1;
+    cout << "\nTwoj ruch: ";
+    cin >> wybor;
+    ruch=0;
+    }
+}
 
 int czywygrana(int czy)
 {
