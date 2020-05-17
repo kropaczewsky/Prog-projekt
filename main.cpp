@@ -43,6 +43,47 @@ int czywolne(int u, int o)
     ruch=0;
     }
 }
+int swith()
+{
+    switch(wybor)
+    {
+    case 7:
+        czywolne(0, 0);
+    break;
+    case 8:
+        czywolne(0,1);
+    break;
+    case 9:
+        czywolne(0,2);
+    break;
+    case 4:
+        czywolne(1,0);
+    break;
+    case 5:
+        czywolne(1,1);
+    break;
+    case 6:
+        czywolne(1,2);
+    break;
+    case 1:
+        czywolne(2,0);
+    break;
+    case 2:
+        czywolne(2,1);
+    break;
+    case 3:
+        czywolne(2,2);
+    break;
+    default:
+        cout << "Nie ma takiego pola";
+        getchar();
+        wybor = -1;
+        cout << "\nTwoj ruch: ";
+        cin >> wybor;
+        ruch=0;
+        swith();
+    }
+}
 
 int czywygrana(int czy)
 {
