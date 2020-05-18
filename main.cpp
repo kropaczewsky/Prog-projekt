@@ -369,6 +369,7 @@ int reset()
 }
 
 
+
 int main()
 {
     planszaa();
