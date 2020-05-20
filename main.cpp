@@ -368,6 +368,50 @@ int reset()
     return 0;
 }
 
+int reset2()
+{
+    system("cls");
+    plansza[0][0]=0;
+    plansza[0][1]=0;
+    plansza[0][2]=0;
+    plansza[1][0]=0;
+    plansza[1][1]=0;
+    plansza[1][2]=0;
+    plansza[2][0]=0;
+    plansza[2][1]=0;
+    plansza[2][2]=0;
+    return 0;
+}
+
+
+int komp()
+{
+    czywygrana(4);
+    czywygrana(18);
+    gra();
+}
+
+
+
+int czywolne(int u, int o)
+{
+    if(plansza[u][o]==0)
+    {
+        plansza[u][o]=9;
+    }
+    else
+    {
+        cout << "To pole jest zajete";
+        getchar();
+            wybor = -1;
+    cout << "\nTwoj ruch: ";
+    cin >> wybor;
+    ruch=0;
+    }
+}
+
+
+
 
 
 int main()
