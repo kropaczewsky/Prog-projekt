@@ -368,6 +368,92 @@ int reset()
     return 0;
 }
 
+int wynik()
+{
+    i=0;
+    {
+    //wiersze-----------------------------------------------------------------------------------------------------
+        while(i<3)
+        {
+            przerwa("badam wiersze");
+            przerwa(intToStr(i));
+            if(plansza[i][0]+plansza[i][1]+plansza[i][2]==6 )//|| plansza[i][0]+plansza[i][2]==4 || plansza[i][1]+plansza[i][2]==4)
+            {
+                cout << "\n\n\n   Przegrales!\n\n\n";
+                koniec = true;
+            }
+            else if(plansza[i][0]+plansza[i][1]+plansza[i][2]==27)
+            {
+                cout << "\n\n\n   Wygrales!\n\n\n";
+                koniec = true;
+            }
+            else if(plansza[i][0]+plansza[i][1]+plansza[i][2] > 6 & plansza[i][0]+plansza[i][1]+plansza[i][2]==!6 & plansza[i][0]+plansza[i][1]+plansza[i][2]==!27)
+            {
+                cout << "\n\n\n   Remis!\n\n\n";
+                koniec = true;
+            }
+        i++;
+        }
+    }
+    i=0;
+        //kolumny-----------------------------------------------------------------------------------------------------
+        while(i<3)
+        {
+            przerwa("badam kolumnmy");
+            przerwa(intToStr(i));
+            if(plansza[0][i]+plansza[1][i]+plansza[2][i]==6 )//|| plansza[i][0]+plansza[i][2]==4 || plansza[i][1]+plansza[i][2]==4)
+            {
+                cout << "\n\n\n   Przegrales!\n\n\n";
+                koniec = true;
+            }
+            else if(plansza[0][i]+plansza[1][i]+plansza[2][i]==27)
+            {
+                cout << "\n\n\n    Wygrales!\n\n\n";
+                koniec = true;
+            }
+            else if(plansza[0][i]+plansza[1][i]+plansza[2][i]>6 & plansza[0][i]+plansza[1][i]+plansza[2][i]==!27 & plansza[0][i]+plansza[1][i]+plansza[2][i]==!6)
+            {
+                cout <<"\n\n\n    Remis! \n\n\n";
+                koniec = true;
+            }
+        i++;
+        }
+        i=0;
+            przerwa("badam pochyle");
+            przerwa(intToStr(i));
+            if(plansza[0][0]+plansza[1][1]+plansza[2][2]==6 )//|| plansza[i][0]+plansza[i][2]==4 || plansza[i][1]+plansza[i][2]==4)
+            {
+                cout << "\n\n\n   Przegrales!\n\n\n";
+                koniec = true;
+            }
+            if(plansza[2][0]+plansza[1][1]+plansza[0][2]==6 )//|| plansza[i][0]+plansza[i][2]==4 || plansza[i][1]+plansza[i][2]==4)
+            {
+                cout << "\n\n\n   Przegrales!\n\n\n";
+                koniec = true;
+            }
+            else if(plansza[0][2]+plansza[1][1]+plansza[2][0]==27)
+            {
+                cout << "\n\n\n    Wygrales!\n\n\n";
+                koniec = true;
+            }
+            else if(plansza[0][0]+plansza[1][1]+plansza[2][2]==27)
+            {
+                cout << "\n\n\n    Wygrales!\n\n\n";
+                koniec = true;
+            }
+            else if(plansza[0][0]+plansza[1][1]+plansza[2][2]>6 & plansza[0][0]+plansza[1][1]+plansza[2][2]==!27 & plansza[0][0]+plansza[1][1]+plansza[2][2]==!6)
+            {
+                cout <<"\n\n\n    Remis! \n\n\n";
+                koniec = true;
+            }
+            else if(plansza[2][0]+plansza[1][1]+plansza[0][2]>6 & plansza[2][0]+plansza[1][1]+plansza[0][2]==!27 & plansza[2][0]+plansza[1][1]+plansza[0][2]==!6)
+            {
+                cout <<"\n\n\n    Remis! \n\n\n";
+                koniec = true;
+            }
+        return 0;
+    }
+
 
 
 int main()
