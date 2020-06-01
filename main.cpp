@@ -9,6 +9,9 @@ using namespace std;
 int plansza[3][3] = {{0,0,0},{0,0,0},{0,0,0}};
 int i=0;
 int ruch=0;
+int licznik_przerwy=0;
+int wybor;
+
 
 string intToStr(int n)
 {
@@ -26,6 +29,14 @@ string intToStr(int n)
       ret += tmp[i];
      return ret;
 };
+
+vodi przerwa(string t)
+{
+     //licznik_przerwy++;
+     //cout << licznik_przerwy <<". "<< t;
+     //getchar();
+     
+}
 
 int czywolne(int u, int o)
 {
@@ -368,6 +379,40 @@ int reset()
     return 0;
 }
 
+
+int reset2()
+{
+    system("cls");
+    plansza[0][0]=0;
+    plansza[0][1]=0;
+    plansza[0][2]=0;
+    plansza[1][0]=0;
+    plansza[1][1]=0;
+    plansza[1][2]=0;
+    plansza[2][0]=0;
+    plansza[2][1]=0;
+    plansza[2][2]=0;
+    return 0;
+}
+
+int komp()
+{
+    czywygrana(4);
+    czywygrana(18);
+    gra();
+}
+
+
+int wyborg()
+{
+    wybor = -1;
+    cout << "\nTwoj ruch: ";
+    cin >> wybor;
+    ruch=0;
+    swith();
+}
+
+
 int wynik()
 {
     i=0;
@@ -453,6 +498,17 @@ int wynik()
             }
         return 0;
     }
+
+int ende()
+{
+    if(koniec==true)
+    {
+        cout <<"Jeszcze raz?";
+        getchar();
+        // funkcja jeszcze musi postać z wszystkimi funkcjami -- plansa();
+    }
+}
+
 
 
 
