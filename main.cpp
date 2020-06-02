@@ -30,13 +30,6 @@ string intToStr(int n)
      return ret;
 };
 
-vodi przerwa(string t)
-{
-     //licznik_przerwy++;
-     //cout << licznik_przerwy <<". "<< t;
-     //getchar();
-     
-}
 
 int czywolne(int u, int o)
 {
@@ -505,16 +498,21 @@ int ende()
     {
         cout <<"Jeszcze raz?";
         getchar();
-        // funkcja jeszcze musi postać z wszystkimi funkcjami -- plansa();
+        plansa();
+
     }
 }
 
-
+int plansa()
+{
+    reset();
+    rysuj();
+}
 
 
 int main()
 {
     planszaa();
-
+    ende();
     return 0;
 }
