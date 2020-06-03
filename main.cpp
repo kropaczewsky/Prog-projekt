@@ -31,7 +31,7 @@ string intToStr(int n)
 };
 
 
-int czywolne(int u, int o)
+void czywolne(int u, int o)
 {
     if(plansza[u][o]==0)
     {
@@ -47,7 +47,7 @@ int czywolne(int u, int o)
     ruch=0;
     }
 }
-int swith()
+void swith()
 {
     switch(wybor)
     {
@@ -388,7 +388,7 @@ int reset2()
     return 0;
 }
 
-int komp()
+void komp()
 {
     czywygrana(4);
     czywygrana(18);
@@ -396,7 +396,7 @@ int komp()
 }
 
 
-int wyborg()
+void wyborg()
 {
     wybor = -1;
     cout << "\nTwoj ruch: ";
@@ -492,7 +492,7 @@ int wynik()
         return 0;
     }
 
-int ende()
+void ende()
 {
     if(koniec==true)
     {
@@ -503,7 +503,7 @@ int ende()
     }
 }
 
-int plansa()
+void plansa()
 {
     reset();
     rysuj();
