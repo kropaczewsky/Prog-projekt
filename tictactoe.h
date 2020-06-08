@@ -6,9 +6,9 @@
 
 using namespace std;
 
-int plansza[3][3] = { {0,0,0},{0,0,0},{0,0,0}, };
-int i = 0;
+int plansza[3][3] = { {0,0,0},{0,0,0},{0,0,0} };
 int ruch = 0;
+int i = 0;
 int licznik_przerwy = 0;
 int wybor;
 int wybortrybu;
@@ -18,7 +18,10 @@ char ch;
 void swith();
 void plansa();
 int ende();
-bool remis;
+int gracz = 1;
+void dwochgraczy();
+void wyborgr();
+char znak;
 
 string intToStr(int n)
 {
@@ -43,6 +46,12 @@ void trybgry()
     cout << "1. Dwóch graczy" << endl;
     cout << "2. Komputer" << endl << endl;
     cin >> wybortrybu;
+    if (wybortrybu == 1)
+    {
+        cin.get();
+        dwochgraczy();
+        ende();
+    }
     if (wybortrybu == 2)
     {
         cin.get();
@@ -68,6 +77,26 @@ void czywolne(int u, int o)
     }
 }
 
+void czywolne2(int u, int o)
+{
+    if (plansza[u][o] == 0)
+    {
+        if (gracz == 1)
+        {
+            plansza[u][o] = 2;
+        }
+        else
+        {
+            plansza[u][o] = 9;
+        }
+    }
+    else
+    {
+        cout << "To pole jest zajête.";
+        wyborgr();
+    }
+}
+
 void brakpola()
 {
     cout << "Nie ma takiego pola.";
@@ -76,6 +105,12 @@ void brakpola()
     cin >> wybor;
     ruch = 0;
     swith();
+}
+
+void brakpola2()
+{
+    cout << "Nie ma takiego pola.";
+    wyborgr();
 }
 
 void swith()
@@ -111,6 +146,42 @@ void swith()
         break;
     default:
         brakpola();
+    }
+}
+
+void swith2()
+{
+    switch (wybor)
+    {
+    case 7:
+        czywolne2(0, 0);
+        break;
+    case 8:
+        czywolne2(0, 1);
+        break;
+    case 9:
+        czywolne2(0, 2);
+        break;
+    case 4:
+        czywolne2(1, 0);
+        break;
+    case 5:
+        czywolne2(1, 1);
+        break;
+    case 6:
+        czywolne2(1, 2);
+        break;
+    case 1:
+        czywolne2(2, 0);
+        break;
+    case 2:
+        czywolne2(2, 1);
+        break;
+    case 3:
+        czywolne2(2, 2);
+        break;
+    default:
+        brakpola2();
     }
 }
 
@@ -528,6 +599,97 @@ int wynik()
     return 0;
 }
 
+int wynik2()
+{
+    i = 0;
+    {
+        //wiersze-----------------------------------------------------------------------------------------------------
+        while (i < 3)
+        {
+            przerwa("Badam wiersze");
+            przerwa(intToStr(i));
+            if (plansza[i][0] + plansza[i][1] + plansza[i][2] == 6) //|| plansza[i][0] + plansza[i][2] == 4 || plansza[i][1] + plansza[i][2] == 4)
+            {
+                cout << "\n\n\n   Gracz 1 wygra³!\n\n\n";
+                koniec = true;
+            }
+            else if (plansza[i][0] + plansza[i][1] + plansza[i][2] == 27)
+            {
+                cout << "\n\n\n   Gracz 2 wygra³!\n\n\n";
+                koniec = true;
+            }
+            else if (plansza[i][0] + plansza[i][1] + plansza[i][2] > 6 && plansza[i][0] + plansza[i][1] + plansza[i][2] == !6 && plansza[i][0] + plansza[i][1] + plansza[i][2] == !27)
+            {
+                cout << "\n\n\n   Remis!\n\n\n";
+                koniec = true;
+            }
+            i++;
+        }
+    }
+    i = 0;
+    //kolumny-----------------------------------------------------------------------------------------------------
+    while (i < 3)
+    {
+        przerwa("Badam kolumny");
+        przerwa(intToStr(i));
+        if (plansza[0][i] + plansza[1][i] + plansza[2][i] == 6)//|| plansza[i][0]+plansza[i][2]==4 || plansza[i][1]+plansza[i][2]==4)
+        {
+            cout << "\n\n\n   Gracz 1 wygra³!\n\n\n";
+            koniec = true;
+        }
+        else if (plansza[0][i] + plansza[1][i] + plansza[2][i] == 27)
+        {
+            cout << "\n\n\n    Gracz 2 wygra³!\n\n\n";
+            koniec = true;
+        }
+        else if (plansza[0][i] + plansza[1][i] + plansza[2][i] > 6 && plansza[0][i] + plansza[1][i] + plansza[2][i] == !27 && plansza[0][i] + plansza[1][i] + plansza[2][i] == !6)
+        {
+            cout << "\n\n\n    Remis! \n\n\n";
+            koniec = true;
+        }
+        i++;
+    }
+    i = 0;
+    przerwa("Badam pochy³e");
+    przerwa(intToStr(i));
+    if (plansza[0][0] + plansza[1][1] + plansza[2][2] == 6) //|| plansza[i][0] + plansza[i][2] == 4 || plansza[i][1] + plansza[i][2] == 4)
+    {
+        cout << "\n\n\n   Gracz 1 wygra³!\n\n\n";
+        koniec = true;
+    }
+    else if (plansza[2][0] + plansza[1][1] + plansza[0][2] == 6) //|| plansza[i][0] + plansza[i][2] == 4 || plansza[i][1] + plansza[i][2] == 4)
+    {
+        cout << "\n\n\n   Gracz 1 wygra³!\n\n\n";
+        koniec = true;
+    }
+    else if (plansza[0][2] + plansza[1][1] + plansza[2][0] == 27)
+    {
+        cout << "\n\n\n    Gracz 2 wygra³!\n\n\n";
+        koniec = true;
+    }
+    else if (plansza[0][0] + plansza[1][1] + plansza[2][2] == 27)
+    {
+        cout << "\n\n\n    Gracz 2 wygra³!\n\n\n";
+        koniec = true;
+    }
+    else if (plansza[0][0] + plansza[1][1] + plansza[2][2] > 6 && plansza[0][0] + plansza[1][1] + plansza[2][2] == !27 && plansza[0][0] + plansza[1][1] + plansza[2][2] == !6)
+    {
+        cout << "\n\n\n    Remis! \n\n\n";
+        koniec = true;
+    }
+    else if (plansza[2][0] + plansza[1][1] + plansza[0][2] > 6 && plansza[2][0] + plansza[1][1] + plansza[0][2] == !27 && plansza[2][0] + plansza[1][1] + plansza[0][2] == !6)
+    {
+        cout << "\n\n\n    Remis! \n\n\n";
+        koniec = true;
+    }
+    else if (cin.get() == 'r')
+    {
+        cout << "\n\n\n    Remis! \n\n\n";
+        koniec = true;
+    }
+    return 0;
+}
+
 void plansa()
 {
     reset();
@@ -564,4 +726,32 @@ int ende()
             return 0;
         }
     }
+}
+
+void dwochgraczy()
+{
+    reset();
+    planszaa();
+    cout << "\nEnter aby zacz¹æ ";
+    cin.get();
+    reset2();
+    while (koniec == false)
+    {
+        planszaa();
+        wyborgr();
+        planszaa();
+        wynik2();
+    }
+}
+
+void wyborgr()
+{
+    wybor = -1;
+    gracz = (gracz % 2) ? 1 : 2;
+    cout << "\nTeraz ruch gracza " << gracz << ": ";
+    cin >> wybor;
+    znak = (gracz == 1) ? 'X' : 'O';
+    swith2();
+    ruch = 0;
+    gracz++;
 }
